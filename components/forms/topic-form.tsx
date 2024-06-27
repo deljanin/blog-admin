@@ -91,7 +91,7 @@ export default function TopicForm() {
     }
   };
   return (
-    <form onSubmit={handleTopicSubmit} className="flex flex-col gap-3">
+    <form onSubmit={handleTopicSubmit} className="w-1/2 flex flex-col gap-3">
       <h2>Create Topic</h2>
       {error && <div className="text-red-500">{error}</div>}
       <Input type="text" placeholder="Title" name="title" required />

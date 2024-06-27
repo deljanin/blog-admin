@@ -106,7 +106,7 @@ export default function ThreadForm() {
     }
   };
   return (
-    <form onSubmit={handleThreadSubmit} className="flex flex-col gap-3">
+    <form onSubmit={handleThreadSubmit} className="w-1/2 flex flex-col gap-3">
       <h2>Create Thread</h2>
       {error && <p className="text-red-500">{error}</p>}
       <Input type="text" placeholder="Title" name="title" />

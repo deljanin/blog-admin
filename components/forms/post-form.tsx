@@ -162,6 +162,7 @@ export default function PostForm({
       <Input type="text" placeholder="Slug" name="slug" />
       <Textarea placeholder="Description" name="description" />
       <Textarea
+        className="h-screen"
         placeholder="Post content"
         name="content"
         onChange={(e) => setPostContent(e.target.value)}

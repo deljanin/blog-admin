@@ -77,14 +77,14 @@ export default async function RootLayout({
     return (
       <div className=" hidden border-r bg-muted/40 md:block animate-slide-in-left">
         <div className="flex h-full max-h-screen flex-col gap-2">
-          <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
+          <div className="flex flex-shrink-0 items-center border-b px-4 lg:h-[60px] lg:px-6">
             <Link href="/" className="flex items-center gap-2 font-semibold">
               <Home className="h-6 w-6" />
               <span className="">pd&apos;s blog</span>
             </Link>
           </div>
-          <div className="flex-1">
-            <nav className="flex flex-col px-2 gap-3 text-sm font-medium lg:px-4">
+          <nav className=" px-2 gap-3 text-sm font-medium lg:px-4">
+            <ScrollArea className="flex flex-col flex-grow h-[calc(100vh-40px)] w-full">
               {topics.map((topic) => {
                 const IconComponent = iconMap[topic.icon];
                 const topicThreads = threads.filter(
@@ -102,14 +102,13 @@ export default async function RootLayout({
                       </Link>
                       <Separator />
 
-                      <ScrollArea className="ml-2 py-1 h-64 w-full rounded-lg ">
+                      <ScrollArea className="ml-2 py-1 h-64 w-full">
                         {topicThreads.map((thread) => (
-                          <>
+                          <div key={thread.id} className="w-full">
                             <TooltipProvider>
                               <Tooltip>
                                 <TooltipTrigger>
                                   <Link
-                                    key={thread.id}
                                     href={`/topics/${thread.slug}`}
                                     className="flex ml-4 py-2 text-muted-foreground transition-all hover:text-primary">
                                     {trimString(thread.title, 30)}
@@ -120,23 +119,23 @@ export default async function RootLayout({
                                 </TooltipContent>
                               </Tooltip>
                             </TooltipProvider>
-                          </>
+                          </div>
                         ))}
                       </ScrollArea>
                     </div>
                   </>
                 );
               })}
-            </nav>
-          </div>
+            </ScrollArea>
+          </nav>
           {/* <div className="mt-auto p-4">
-            <Link
-              href="#"
-              className="flex items-center gap-2 px-2 w-full text-lg font-semibold text-muted-foreground md:text-base">
-              <Settings className="h-5 w-5 transition-all " />
-              <span className="">Settings</span>
-            </Link>
-          </div> */}
+              <Link
+                href="#"
+                className="flex items-center gap-2 px-2 w-full text-lg font-semibold text-muted-foreground md:text-base">
+                <Settings className="h-5 w-5 transition-all " />
+                <span className="">Settings</span>
+              </Link>
+            </div> */}
         </div>
       </div>
     );
