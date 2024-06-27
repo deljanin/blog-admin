@@ -12,6 +12,7 @@ import TopicForm from '@/components/forms/topic-form';
 import ThreadForm from '@/components/forms/thread-form';
 import PostForm from '@/components/forms/post-form';
 import remarkGfm from 'remark-gfm';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 export default function Home() {
   const [postContent, setPostContent] = useState('');
@@ -28,11 +29,13 @@ export default function Home() {
         </ResizablePanel>
         <ResizableHandle />
         <ResizablePanel className="w-full flex align-center justify-center pt-5">
-          <Markdown
-            remarkPlugins={[remarkGfm]}
-            className=" prose dark:prose-invert">
-            {postContent}
-          </Markdown>
+          <ScrollArea className="h-[calc(100vh-40px)]">
+            <Markdown
+              remarkPlugins={[remarkGfm]}
+              className=" prose dark:prose-invert">
+              {postContent}
+            </Markdown>
+          </ScrollArea>
         </ResizablePanel>
       </ResizablePanelGroup>
     </main>
