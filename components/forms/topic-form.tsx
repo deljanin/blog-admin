@@ -18,6 +18,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
+import SlugInput from './title-slug-input';
 type Topic = {
   id: number;
   title: string;
@@ -94,8 +95,7 @@ export default function TopicForm() {
     <form onSubmit={handleTopicSubmit} className="w-1/2 flex flex-col gap-3">
       <h2>Create Topic</h2>
       {error && <div className="text-red-500">{error}</div>}
-      <Input type="text" placeholder="Title" name="title" required />
-      <Input type="text" placeholder="Slug" name="slug" required />
+      <SlugInput />
       <Input type="text" placeholder="Icon" name="icon" required />
       <Button type="submit" disabled={loading}>
         {loading ? 'Creating...' : 'Create'}

@@ -18,6 +18,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
+import SlugInput from './title-slug-input';
 
 type Topic = {
   id: number;
@@ -105,12 +106,12 @@ export default function ThreadForm() {
       router.push('/');
     }
   };
+
   return (
     <form onSubmit={handleThreadSubmit} className="w-1/2 flex flex-col gap-3">
       <h2>Create Thread</h2>
       {error && <p className="text-red-500">{error}</p>}
-      <Input type="text" placeholder="Title" name="title" />
-      <Input type="text" placeholder="Slug" name="slug" />
+      <SlugInput />
       <Textarea placeholder="Description" name="description" />
       <Select name="topicId">
         <SelectTrigger className="w-[180px] h-12">

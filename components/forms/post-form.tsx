@@ -12,6 +12,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
+import SlugInput from './title-slug-input';
 
 type Topic = {
   id: number;
@@ -158,8 +159,7 @@ export default function PostForm({
           )}
         </SelectContent>
       </Select>
-      <Input type="text" placeholder="Title" name="title" />
-      <Input type="text" placeholder="Slug" name="slug" />
+      <SlugInput />
       <Textarea placeholder="Description" name="description" />
       <Textarea
         className="h-screen"
