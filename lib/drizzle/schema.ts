@@ -95,7 +95,7 @@ export const post = pgTable(
 
     description: text('description').notNull(),
 
-    embedding: vector('embedding', { dimensions: 1536 }).notNull(),
+    embedding: vector('embedding', { dimensions: 768 }),
 
     slug: varchar('slug', { length: 100 }).notNull().unique(),
 

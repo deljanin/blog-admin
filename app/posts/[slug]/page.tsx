@@ -60,13 +60,14 @@ export default async function Posts({ params }: { params: Params }) {
               href={`/posts/${post.slug}`}
               key={post.similarPostId}
               className="w-full p-2 flex items-center justify-between rounded-lg transition-all border border-transparent hover:border hover:border-primary">
-              <div className="flex space-x-4">
-                <div className="space-y-1">
-                  <h4 className="text-sm font-semibold">{post.title}</h4>
-                  <p className="text-sm text-muted-foreground">
-                    {post.description}
-                  </p>
-                </div>
+              <div className="space-y-1">
+                <h4 className="text-sm font-semibold">{post.title}</h4>
+                <p className="text-sm text-muted-foreground">
+                  {post.description}
+                </p>
+                <span className="text-sm opacity-30">
+                  Similarity: {(100 * post.similarity).toFixed(2)}%
+                </span>
               </div>
             </Link>
           ))}

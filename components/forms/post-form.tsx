@@ -33,10 +33,7 @@ type TopicFormProps = {
   postContent: string;
   setPostContent: React.Dispatch<React.SetStateAction<string>>;
 };
-export default function PostForm({
-  postContent,
-  setPostContent,
-}: TopicFormProps) {
+export default function PostForm({ setPostContent }: TopicFormProps) {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
